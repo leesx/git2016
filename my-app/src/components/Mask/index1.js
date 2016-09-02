@@ -3,64 +3,61 @@ import { Link } from 'react-router'
 import { findDOMNode } from 'react-dom'
 
 import './css/index.css'
-
+let oImg = new Image()
 export default class Mask extends Component{
     constructor(props){
         super(props)
-
-
         this.state = {
             loadingImg : true,
-            start:0
+            start:this.props.start
         }
     }
 
-    componentDidMount=()=>{
-        //console.log('你好',this.props.start)
-        //this.changeImg(0)
-        //console.dir(findDOMNode(document.getElementById('showImg')))
-        this.preLoadImg(findDOMNode(document.getElementById('showImg')))
-
+    componentDidMount(){
+        console.log('你好',this.props.start)
         this.setState({
-          start:this.props.start
+            start: this.props.start
         })
-
+        this.changeImg()
         window.onresize = ()=>{
-          this.preLoadImg(findDOMNode(document.getElementById('showImg')))
+          console.log('888')
         }
     }
 
     componentWillReceiveProps=(nextProps)=>{
-      //console.log(this.props.start,nextProps)
-        if(nextProps.start !== undefined){
+      console.log(this.props.start,nextProps)
+        if(nextProps.start){
             this.setState({
                 start: nextProps.start
             })
+            oImg.src = this.props.imgSource[nextProps.start].imgurl
         }
     }
 
 
-    preLoadImg=(oImg)=>{
+
+    changeImg=()=>{
         const winW = document.body.clientWidth || document.documentElement.clientWidth
         const winH = document.body.clientHeight || document.documentElement.clientHeight
 
+        document.body.appendChild(findDOMNode(this.refs.mask))
 
 
+        oImg.src = this.props.imgSource[this.state.start].imgurl
         oImg.onload = ()=>{
+            this.setState({
+                loadingImg:false
+            })
+            const imgWidth = oImg.width || 400
+            const imgHeight = oImg.height || 300
 
-          if(!this.props.showModal) return ;
-          this.setState({
-              loadingImg:false
-          })
-          const imgWidth = oImg.width
-          const imgHeight = oImg.height
+            const centerPosX = (winW - imgWidth)/2 + 'px'
+            const centerPosY = (winH - imgHeight)/2 + 'px'
 
-          const centerPosX = (winW - imgWidth)/2 + 'px'
-          const centerPosY = (winH - imgHeight)/2 + 'px'
-          oImg.style.opacity = 1
-          findDOMNode(this.refs.imageBox).style.cssText=`left:${centerPosX};top:${centerPosY};`
+            oImg.id = 'showImg'
+            findDOMNode(this.refs.imageBox).style.cssText=`left:${centerPosX};top:${centerPosY}`
+            findDOMNode(this.refs.imageBox).appendChild(oImg)
         }
-
     }
 
 
@@ -84,8 +81,7 @@ export default class Mask extends Component{
                 start:cur
             })
         }
-        //console.log(findDOMNode(document.getElementById('showImg')))
-        this.preLoadImg(findDOMNode(document.getElementById('showImg')))
+        findDOMNode(document.getElementById('showImg')).src = this.props.imgSource[cur].imgurl
     }
 
 
@@ -95,13 +91,12 @@ export default class Mask extends Component{
         const disp = this.props.showModal ? 'block' : 'none'
         return (
             <div ref="mask" className = {this.props.showModal ? 'show' : 'hide'}>
-                <div className="mask" onClick = {this.props.closePicModal}>
+                <div className="mask" >
                 </div>
                 <div className="image-wrap" ref="imageBox">
                     {
                         this.state.loadingImg ? <div className="show"><img src="./src/images/loading.gif" /></div> : <div className="hide"><img src="./src/images/loading.gif" /></div>
                     }
-                    <img id="showImg" src={this.props.imgSource[this.state.start].imgurl} />
                     <div className="lb-nav">
                         <a className="lb-prev" onClick={this.nextImage.bind(this,0)} ></a>
                         <a className="lb-next" onClick={this.nextImage.bind(this,1)} ></a>
