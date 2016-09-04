@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
+import Animate from 'rc-animate';
+import {Motion, spring} from 'react-motion';
 import { findDOMNode } from 'react-dom'
 
 import './css/index.css'
@@ -11,14 +13,12 @@ export default class Mask extends Component{
 
         this.state = {
             loadingImg : true,
-            start:0
+            start:0,
+            flag:true,
         }
     }
 
     componentDidMount=()=>{
-        //console.log('你好',this.props.start)
-        //this.changeImg(0)
-        //console.dir(findDOMNode(document.getElementById('showImg')))
         this.preLoadImg(findDOMNode(document.getElementById('showImg')))
 
         this.setState({
@@ -26,20 +26,35 @@ export default class Mask extends Component{
         })
 
         window.onresize = ()=>{
+
+          this.resizeImg()
           this.preLoadImg(findDOMNode(document.getElementById('showImg')))
         }
     }
 
     componentWillReceiveProps=(nextProps)=>{
       //console.log(this.props.start,nextProps)
-        if(nextProps.start !== undefined){
+        if(nextProps.start){
             this.setState({
                 start: nextProps.start
             })
         }
     }
 
+    resizeImg = ()=>{
+      const winW = document.body.clientWidth || document.documentElement.clientWidth
+      const winH = document.body.clientHeight || document.documentElement.clientHeight
+      const imgObj = findDOMNode(document.getElementById('showImg'))
 
+      const imgWidth = imgObj.width
+      const imgHeight = imgObj.height
+
+
+      const centerPosX = (winW - imgWidth)/2 + 'px'
+      const centerPosY = (winH - imgHeight)/2 + 'px'
+
+      findDOMNode(this.refs.imageBox).style.cssText=`left:${centerPosX};top:${centerPosY};`
+    }
     preLoadImg=(oImg)=>{
         const winW = document.body.clientWidth || document.documentElement.clientWidth
         const winH = document.body.clientHeight || document.documentElement.clientHeight
@@ -57,8 +72,14 @@ export default class Mask extends Component{
 
           const centerPosX = (winW - imgWidth)/2 + 'px'
           const centerPosY = (winH - imgHeight)/2 + 'px'
-          oImg.style.opacity = 1
+          oImg.style.opacity = 1;
           findDOMNode(this.refs.imageBox).style.cssText=`left:${centerPosX};top:${centerPosY};`
+        }
+
+        oImg.onerror = ()=>{
+
+          //findDOMNode(this.refs.imageBox).style.cssText=`left:50%;top:50%;width:400px;height:300px;margin:-150px 0 0 -200px;`
+          console.log('加载失败')
         }
 
     }
@@ -66,6 +87,12 @@ export default class Mask extends Component{
 
     nextImage(dir){
         let cur = this.state.start
+
+        this.setState({
+          flag:!this.state.flag,
+        })
+
+        //findDOMNode(document.getElementById('showImg'))
 
         if(dir === 1){
             cur++;
@@ -88,24 +115,44 @@ export default class Mask extends Component{
         this.preLoadImg(findDOMNode(document.getElementById('showImg')))
     }
 
+    renderArrow = ()=>{
+      const cur = this.state.start
+
+      return (
+        <div className="lb-nav">
+            <a className={ cur===0 ? 'lb-prev hide' : 'lb-prev'} onClick={this.nextImage.bind(this,0)} ></a>
+            <a className={ cur===this.props.imgSource.length-1 ? 'lb-next hide' : 'lb-next'} onClick={this.nextImage.bind(this,1)} ></a>
+        </div>
+      )
+    }
+
 
 
 
     render(){
-        const disp = this.props.showModal ? 'block' : 'none'
+        const isDisplay = this.props.showModal ? 'show' : 'hide'
+        const styles = {
+          opacity:this.state.opacity
+        }
         return (
-            <div ref="mask" className = {this.props.showModal ? 'show' : 'hide'}>
+            <div ref="lightBox" className = {isDisplay}>
                 <div className="mask" onClick = {this.props.closePicModal}>
                 </div>
                 <div className="image-wrap" ref="imageBox">
                     {
                         this.state.loadingImg ? <div className="show"><img src="./src/images/loading.gif" /></div> : <div className="hide"><img src="./src/images/loading.gif" /></div>
                     }
-                    <img id="showImg" src={this.props.imgSource[this.state.start].imgurl} />
-                    <div className="lb-nav">
-                        <a className="lb-prev" onClick={this.nextImage.bind(this,0)} ></a>
-                        <a className="lb-next" onClick={this.nextImage.bind(this,1)} ></a>
-                    </div>
+                    <Animate
+                      transitionLeave={false}
+                      transitionName="fade"
+                    >
+                      <img id="showImg" key="image-box" style={styles} src={this.props.imgSource[this.state.start].imgurl} />
+                    </Animate>
+
+
+                    {
+                      this.renderArrow()
+                    }
                     <div className="lb-close" onClick = {this.props.closePicModal}></div>
                 </div>
             </div>

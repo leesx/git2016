@@ -3,7 +3,7 @@
  */
 import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
-
+import {Motion, spring} from 'react-motion';
 import Mask from '../Mask'
 
 const MockData = [{
@@ -30,6 +30,8 @@ const MockData2 = [{
   imgurl:'https://gss0.bdstatic.com/5eR1dDebRNRTm2_p8IuM_a/res/r/image/2016-09-02/177e848bf4f0df538576f5422029c3e6.jpg'
 },{
   imgurl:'http://www.wallcoo.com/animal/v195_Lively_Dogs/wallpapers/1280x800/Lively_Dogs_wallpaper_MIX88041_wallcoo.com.jpg'
+},{
+  imgurl:'http://www.wallcoo.com/animal/v195_Lively_Dogs/wallpapers/1280x800/Lively_Dogs_wallpaper_MIX88041_wallcoo.com2.jpg'
 }]
 
 export default  class MaskDemo extends Component{
@@ -39,6 +41,7 @@ export default  class MaskDemo extends Component{
         this.state = {
             showPicModal:false,
             imgData:[],
+            open:false,
         }
     }
 
@@ -59,6 +62,15 @@ export default  class MaskDemo extends Component{
 
     }
 
+    handleMouseDown=()=>{
+       this.setState({open: !this.state.open});
+     }
+
+   handleTouchStart=(e)=>{
+     e.preventDefault();
+     this.handleMouseDown();
+   }
+
     closeHandlePicModal =()=>{
         this.setState({
             showPicModal:false,
@@ -71,7 +83,20 @@ export default  class MaskDemo extends Component{
     renderImgList = (data)=>{
         return (
             data.map((item,index)=>{
-                return (<li key={`img_${index}`} onClick={this.showPicModal.bind(this,{data,index})}><img src={item.imgurl} /></li>)
+                return (
+                  <Motion style={{x: spring(this.state.open ? 1 : 0)}} key={index}>
+                    {({x}) =>
+                       // children is a callback which should accept the current value of
+                       // `style`
+
+                       <li style={{
+                         WebkitTransform: `opacity:${x}`,
+                         transform: `opacity:${x}`,
+                       }} key={`img_${index}`} onClick={this.showPicModal.bind(this,{data,index})}><img src={item.imgurl} /></li>
+                     }
+
+                  </Motion>
+                )
             })
         )
     }
@@ -83,6 +108,11 @@ export default  class MaskDemo extends Component{
 
         return (
             <div className="self-calendar">
+                <button
+                  onMouseDown={this.handleMouseDown}
+                  onTouchStart={this.handleTouchStart}>
+                  Toggle
+                </button>
                 <ul className="img-list clearfix">
                     { this.renderImgList(MockData) }
                 </ul>
