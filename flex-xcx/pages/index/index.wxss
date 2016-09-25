@@ -19,7 +19,7 @@
 .usermotto {
   margin-top: 200px;
 }
-
+/*flex 骰子布局*/
 .face{
   margin: 16px;
   padding: 4px;
@@ -99,4 +99,58 @@
 }
 .face .column2{
   justify-content: center;
+}
+/*flex圣杯布局*/
+
+.HolyGrail-body{
+  display: flex;
+  height: 200px;
+}
+
+/*中间 flex可以放大*/
+/*flex:1 0 auto ; 可以简写为 flex:1;代表可以放大，不可以缩小，宽度auto自适应*/
+.HolyGrail-content{
+  flex:1; 
+  background: #f60;
+}
+/*两边的flex：0 0 40rpx; flex-grow不可以放大，flex-shrink也不可以缩小，flex-basis设置他们的固定宽度*/
+.HolyGrail-nav{
+  flex:0 0 40rpx;
+  order: -1;
+  padding:0 1em;
+  background: #ccc;
+}
+
+/*两边的flex：0 0 40rpx; flex-grow不可以放大，flex-shrink也不可以缩小，flex-basis设置他们的固定宽度*/
+.HolyGrail-ads{
+  flex:0 0 40rpx;
+  padding:0 1em;
+  background: #ccc;
+}
+
+
+.flex-media-demo{
+  
+  background: #ccc;
+}
+.media-flex{
+  display: flex;
+  padding: 10rpx;
+  align-items: flex-start;
+  flex-direction: row;
+  background: #fff;
+}
+.media-figure{
+  width:70px;
+  height: 70px;
+  margin:2px 10px 0 0;
+}
+
+.media-body{
+  flex:1;
+}
+
+.media-body-left{
+  order:-1;
+  padding-left:10rpx;
 }

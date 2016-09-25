@@ -62,4 +62,43 @@
       <view class="pip"></view>
     </view>
   </view>
+
+  <!--圣杯布局-->
+  <view class="HolyGrail-body">
+    <view class="HolyGrail-content">
+      中间内容
+    </view>
+    <view class="HolyGrail-nav">
+        12
+    </view>
+    <view class="HolyGrail-ads">34</view>
+  </view>
+  <!--栅格布局-->
+  <view class="grid">
+    <view class="grid-cell">
+      <view class="flex-media-demo">
+        <view class="media-flex">
+          <image class="media-figure" src="https://philipwalton.github.io/solved-by-flexbox/images/kitten.jpg" ></image>
+          <view class="media-body">
+              <text class="Media-title">Standard Media Object</text>
+              <view>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</view>
+          </view>
+        </view>
+        <view class="media-flex">
+          <image class="media-figure" src="https://philipwalton.github.io/solved-by-flexbox/images/kitten.jpg" ></image>
+          <view class="media-body">
+              <text class="Media-title">Standard Media Object</text>
+              <view>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</view>
+          </view>
+        </view>
+        <view class="media-flex">
+          <image class="media-figure" src="https://philipwalton.github.io/solved-by-flexbox/images/kitten.jpg" ></image>
+          <view class="media-body media-body-left">
+              <text class="Media-title">Standard Media Object</text>
+              <view>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ac nisl quis massa vulputate adipiscing. Vivamus sit amet risus ligula. Nunc eu pulvinar augue.</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
