@@ -1,0 +1,32 @@
+/**index.wxss**/
+.flex-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background:#eee;
+  padding:10rpx;
+}
+
+.flex-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:120rpx;
+  margin-bottom: 10rpx;
+  border:1rpx solid #ccc;
+}
+
+.flex-item .name{
+  font-size:16rpx;
+  color:#f60;
+}
+
+
+/** 修改button默认的点击态样式类**/
+.button-hover{
+  background-color:red;
+}
+/** 添加自定义button点击态样式类**/
+.other-button-hover{
+  background-color:blur;
+}

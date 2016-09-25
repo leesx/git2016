@@ -1,0 +1,65 @@
+<!--index.wxml-->
+<view class="container2">
+  <!--<view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>-->
+  <!--骰子flex布局-->
+  <!--骰子 1-->
+  <view class="face face1">
+    <view class="pip"></view>
+  </view>
+  <!--骰子 2-->
+  <view class="face face2">
+    <view class="pip"></view>
+    <view class="pip"></view>
+  </view>
+    <!--骰子 3-->
+  <view class="face face3">
+    <view class="pip"></view>
+    <view class="pip p2"></view>
+    <view class="pip p3"></view>
+  </view>
+  <!--骰子 4-->
+  <view class="face face4">
+    <view class="column">
+      <view class="pip"></view>
+      <view class="pip"></view>
+    </view>
+    <view class="column">
+      <view class="pip"></view>
+      <view class="pip"></view>
+    </view>
+  </view>
+  <!--骰子 5-->
+  <view class="face face5">
+    <view class="column">
+      <view class="pip"></view>
+      <view class="pip"></view>
+    </view>
+    <view class="column column2">
+      <view class="pip"></view>
+    </view>
+    <view class="column">
+      <view class="pip"></view>
+      <view class="pip"></view>
+    </view>
+  </view>
+
+  <!--骰子 4-->
+  <view class="face face4">
+    <view class="column">
+      <view class="pip"></view>
+      <view class="pip"></view>
+      <view class="pip"></view>
+    </view>
+    <view class="column">
+      <view class="pip"></view>
+      <view class="pip"></view>
+      <view class="pip"></view>
+    </view>
+  </view>
+</view>

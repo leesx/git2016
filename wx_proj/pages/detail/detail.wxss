@@ -1,0 +1,16 @@
+.detail-container{
+    padding:10rpx;
+
+}
+.photo-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name{
+    font-size:16rpx;
+    margin-bottom: 10rpx;
+}
+.title{
+    color:chocolate;
+}

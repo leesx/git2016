@@ -1,0 +1,102 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.face{
+  margin: 16px;
+  padding: 4px;
+  
+  background-color: #e7e7e7;
+  width: 104px;
+  height: 104px;
+  object-fit: contain;
+  
+  box-shadow:
+    inset 0 5px white, 
+    inset 0 -5px #bbb,
+    inset 5px 0 #d7d7d7, 
+    inset -5px 0 #d7d7d7;
+  
+  border-radius: 10%;
+}
+
+.pip {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin: 4px;
+
+  background-color: #333;
+  box-shadow: inset 0 3px #111, inset 0 -3px #555;
+}
+
+.face1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.face2{
+  display: flex;
+  justify-content: space-between;
+}
+
+.face2 .pip:last-child{
+  align-self: flex-end;
+}
+
+.face3{
+  display: flex;
+  justify-content: space-between;
+}
+
+.face3 .pip.p2{
+  align-self: center;
+}
+
+.face3 .pip.p3{
+  align-self: flex-end;
+}
+
+.face4{
+  display: flex;
+  justify-content: space-between;
+}
+
+.face4 .column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.face5{
+  display: flex;
+  justify-content: space-between;
+}
+.face .column{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.face .column2{
+  justify-content: center;
+}

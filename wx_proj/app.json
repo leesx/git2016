@@ -1,0 +1,20 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/detail/detail"
+  ],
+  "window":{
+    "backgroundTextStyle":"light", 
+    "navigationBarBackgroundColor": "#3385ff",
+    "navigationBarTitleText": "水浒传",
+    "navigationBarTextStyle": "white", 
+    "enablePullDownRefresh":true
+  },
+  "tabBar":{
+    "color":"#3385ff",
+    "selectedColor":"white",
+    "backgoundColor":"#ccc",
+    "list":[]
+  }
+}

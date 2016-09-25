@@ -1,0 +1,64 @@
+<!--index.wxml-->
+  <!--一个块级区域-->
+<view class="shz-container">
+  <view class="flex-box"> 
+  <!--for循环 内置了了当前字段为item，当前索引为index -->
+  <!--通过data获取绑定的数据-->
+  <view wx:for="{{ninebox}}" class="flex-item" data-index="{{index}}" data-name="{{item}}" bindtap="tapMe">
+    <text class="name">{{index+1}}-{{item}}</text>
+  </view>
+  </view>
+
+  <view class="btn-area">
+          <button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
+              disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
+          <button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+                  disabled="{{disabled}}" bindtap="primary"> primary </button>
+          <button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}"
+                  disabled="{{disabled}}" bindtap="warn"> warn </button>
+          <button bindtap="setDisabled">点击设置以上按钮disabled属性</button>
+          <button bindtap="setPlain">点击设置以上按钮plain属性</button>
+          <button bindtap="setLoading">点击设置以上按钮loading属性</button>
+  </view>
+  <modal title="标题" confirm-text="确定" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="modalChange" bindcancel="modalChange">
+    水浒
+  </modal>
+
+  <modal class="modal" hidden="{{modalHidden2}}" no-cancel bindconfirm="modalChange2">
+      <view> 没有标题没有蒙层没有确定的modal </view>
+      <view> 内容可以插入节点 </view>
+  </modal>
+
+    
+
+  <view class="btn-area">
+      <button type="default" bindtap="modalTap">点击弹出modal</button>
+      <button type="default" bindtap="modalTap2">点击弹出modal2</button>
+  </view>
+
+  <view>
+    <toast hidden="{{toast1Hidden}}" bindchange="toast1Change">
+        默认
+    </toast>
+    <button type="default" bindtap="toast1Tap">点击弹出默认toast</button>
+  </view>
+
+  <view>
+    <!-- 循环播放 -->
+    <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="http://qqma.tingge123.com:823/mp3/2015-06-13/1434188181.mp3" action="{{action}}" controls loop></audio>
+
+    <button type="primary" bindtap="audioPlay">播放</button>
+  </view>
+  <view>
+    <view class="section tc">
+        <video src="http://www.w3school.com.cn//i/movie.mp4" binderror="videoErrorCallback"></video>
+    </view>
+  </view>
+  <include src="./picker.wxml" />
+</view>
+
+
+
+
+
+

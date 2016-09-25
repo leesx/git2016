@@ -5,7 +5,7 @@ import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import {Motion, spring} from 'react-motion';
 import Mask from '../Mask'
-
+import TweenOne from 'rc-tween-one';
 const MockData = [{
     imgurl:'./src/images/01.jpg',
     title:'图片1',
@@ -56,14 +56,18 @@ export default  class MaskDemo extends Component{
         this.setState({
             showPicModal:true,
             start:obj.index,
-            imgData:obj.data
+            imgData:obj.data,
+            opacity:0,
         })
 
 
     }
 
     handleMouseDown=()=>{
-       this.setState({open: !this.state.open});
+       this.setState({
+         open: !this.state.open,
+         opacity:this.state.opacity ==1 ? 0 : 1,
+       });
      }
 
    handleTouchStart=(e)=>{
@@ -124,6 +128,14 @@ export default  class MaskDemo extends Component{
                 <ul className="img-list clearfix">
                     { this.renderImgList(MockData2) }
                 </ul>
+                <TweenOne
+                component = 'img'
+                src="https://gss0.bdstatic.com/5eR1dDebRNRTm2_p8IuM_a/res/r/image/2016-09-02/9577e9be05aea818907880ac66bdf4a0.jpg"
+                 animation={{ opacity: this.state.opacity, yoyo: false, repeat: -1, duration: 1000 }}
+                 paused={this.props.paused}
+                 style={{ opacity:0,transform: 'scale(1)',width:100,height:100,backgroundColor:'#f60', }}
+                 className="code-box-shape"
+               />
                 {
                   this.state.imgData.length?
                   <Mask

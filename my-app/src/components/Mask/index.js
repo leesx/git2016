@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import Animate from 'rc-animate';
-import {Motion, spring} from 'react-motion';
 import { findDOMNode } from 'react-dom'
 
 import './css/index.css'
@@ -142,13 +141,9 @@ export default class Mask extends Component{
                     {
                         this.state.loadingImg ? <div className="show"><img src="./src/images/loading.gif" /></div> : <div className="hide"><img src="./src/images/loading.gif" /></div>
                     }
-                    <Animate
-                      transitionLeave={false}
-                      transitionName="fade"
-                    >
+                    <Animate showProp="visible" transitionName="fade">
                       <img id="showImg" key="image-box" style={styles} src={this.props.imgSource[this.state.start].imgurl} />
                     </Animate>
-
 
                     {
                       this.renderArrow()

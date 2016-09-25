@@ -1,0 +1,8 @@
+<view class="detail-container">
+    
+    <view class="photo-box">
+        <image style="background-color: #eeeeee;" mode="aspectFit"  src="{{details[id].photo}}"></image>
+    </view>
+    <view class="name">英雄大名：{{details[id].name}}</view>
+    <view class="title">英雄职位：{{details[id].title}}</view>
+</view>
