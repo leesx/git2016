@@ -1,11 +1,4 @@
 <!--index.wxml-->
-<view class="container">
-  <view  bindtap="onButtonTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view>
-    <text class="user-motto">{{motto}}</text>
-    <text>demo</text>
-  </view>
+<view class="welcome-container">
+  <image src="/image/welcome-lc.jpg" background-size="cover" class="wel-pic"></image>
 </view>

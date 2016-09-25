@@ -12,6 +12,11 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     var that = this
+    setTimeout(()=>{
+      wx.navigateTo({
+        url:'./../index/index'
+      })
+    },1000)
   	//登录
     wx.login({
       success: function () {

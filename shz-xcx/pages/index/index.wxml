@@ -1,7 +1,10 @@
 <!--index.wxml-->
   <!--一个块级区域-->
-<view class="shz-container">
-  <view class="swiper-box">
+<view class="welcome-container" animation="{{animationData}}" style="display:{{welcome ? 'flex' : 'none'}}">
+  <image src="/image/welcome-lc.jpg" background-size="cover" class="wel-pic"></image>
+</view>
+<view class="shz-container"  style="opacity:{{welcome ? 0 : 1}};display:{{!welcome ? 'block' : 'none'}}" >
+  <view class="swiper-box" >
       <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
               autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
           <block wx:for-items="{{swiperImgs}}">
@@ -11,7 +14,8 @@
           </block>
       </swiper>
   </view>
-  <view class="flex-box"> 
+  <view  ontouchstart="ontouchStart" ontouchmove="ontouchMove" ontouchend="ontouchEnd">
+        <view class="flex-box" animation="{{animationData}}"> 
   <!--for循环 内置了了当前字段为item，当前索引为index -->
   <!--通过data获取绑定的数据-->
     <view wx:for="{{hero}}" class="flex-item" data-index="{{index}}" data-name="{{item.name}}">
@@ -29,18 +33,20 @@
         <image src="http://pic.baike.soso.com/p/20130628/20130628085301-1920749756.jpg" class="r-pic" mode="scaleToFill"></image>
     </view>
   </view>
-  <view class="hero-list"  data-index="{{index}}" data-name="{{item.name}}"  ontouchstart="ontouchStart" ontouchmove="ontouchMove" ontouchend="ontouchEnd">
-    <view wx:for="{{hero}}"  class="item">
-        <navigator url="./../detail/detail?id={{index}}" >
-            <view class="nav-item">
-                <image class="sm-photo" src="{{item.photo}}" background-size="cover" />
-                <text class="name">{{index+1}}-{{item.name}}</text>
-                <image class="arrow-r" src="/image/arrowright.png" background-size="cover" />
-            </view>
-        </navigator>
-        
+    <view class="hero-list"  data-index="{{index}}" data-name="{{item.name}}" >
+        <view wx:for="{{hero}}"  class="item">
+            <navigator url="./../detail/detail?id={{index}}" >
+                <view class="nav-item">
+                    <image class="sm-photo" src="{{item.photo}}" background-size="cover" />
+                    <text class="name">{{index+1}}-{{item.name}}</text>
+                    <image class="arrow-r" src="/image/arrowright.png" background-size="cover" />
+                </view>
+            </navigator>
+            
+        </view>
     </view>
   </view>
+  
   
   <view class="slide-menu {{menuIsopen ? 'menu-show' : ''}}">
         <view class="user-info">

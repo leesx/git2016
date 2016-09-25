@@ -5,6 +5,10 @@ var app = getApp()
 Page({
   data:{
     hero:[],
+    welcome:true,
+    pageAmima:false,
+    animationData: {},
+    animationData2:{},
     imgUrls: [
       'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
       'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
@@ -34,19 +38,41 @@ Page({
   //第一步
   onLoad:function(options){
     console.log('加载成功',options)
+    setTimeout(()=>{
+        var animation = wx.createAnimation({
+        })
+         this.animation = animation
+        animation.opacity(1).step()
+        this.setData({
+            welcome:false,
+            animationData:animation.export(),
+        })
+    },3000)
   },
   //第二步
   onShow:function(){
     console.log('监听页面显示')
+    
   },
   //第三步
   onReady:function(e){
-
-      console.log(getApp(),'pppp')
     console.log('渲染完成',e)
     this.setData({
         hero:getApp().globalData.heroes
     })
+
+    var animation = wx.createAnimation({
+        duration: 2000,
+        timingFunction: 'ease',
+    })
+
+    this.animation = animation
+    animation.opacity(1).scale(1, 1).step()
+    this.setData({
+      animationData:animation.export()
+    })
+
+    
   },
   tapMe:function(e){
     console.log(this)

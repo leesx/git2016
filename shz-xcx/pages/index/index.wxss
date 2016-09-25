@@ -1,4 +1,21 @@
 /**index.wxss**/
+/*欢迎界面*/
+.welcome-container{
+  display: flex;
+  height:100%;
+  opacity: 0;
+  transform: scale(0);
+}
+.wel-pic{
+  
+  height:100%;
+  flex: 0 0 100%;
+  width:375px;
+}
+/*主界面*/
+.shz-container{
+  opacity: 0;
+}
 .flex-box{
   display: flex;
   flex-wrap: wrap;
@@ -51,13 +68,14 @@
 
 .pic-box .left-box{
  flex:1;
- 
+ margin-right: 5px;
 }
 
 .pic-box .right-box{
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .pic-box .l-pic{
@@ -66,7 +84,7 @@
 }
 .pic-box .r-pic{
   width:200px;
-  height:120px;
+  height:115px;
   background: #ccc;
 }
 /*英雄列表*/
