@@ -1,0 +1,21 @@
+{
+  "name": "react-lightbox",
+  "version": "1.0.0",
+  "description": "this is a react version lightbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-lightbox",
+    "lightbox",
+    "lightbox2"
+  ],
+  "author": "leesx",
+  "license": "ISC",
+  "dependencies": {
+    "rc-tween-one": "^0.8.5",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}
