@@ -2,18 +2,24 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css')
-    link(rel='stylesheet', href='http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css')
-    script(src='http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js')
-    script(src='http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js')
+    //注意路径写成绝对路径就行  所有的静态文件都在public下
+    link(rel='stylesheet', href='/assets/css/bootstrap.css') 
+    link(rel='stylesheet', href='/assets/css/myapp.css')
+    script(src='/assets/js/jquery.js')
+    script(src='/assets/js/bootstrap.js')
   body
-  div(class="container")
-    div(class="row")
+    div(class="navbar navbar-inverse navbar-fixed-top")
         div(class="navbar-inner")
-            a(class="brand" href="#") #{title}
-            ul(class="nav")
-                li(class="active")
-                    a(href="/") 首页
-                li(class="active")
-                    a(href="./add") 添加文章
-    block content
+            div(class="container")
+                button(type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse")
+                    span(class="icon-bar")
+                    span(class="icon-bar")
+                    span(class="icon-bar")
+                a(class="brand" href="/") 小博客2016
+                div(class="nav-collapse collapse")
+                    ul(class="nav")
+                        li: a(href="/article/index" class="active") 文章管理
+                        li: a(href="/member/index") 会员管理
+                        li: a(href="/comment/index") 评论管理
+    div(class="container main")
+        block content
