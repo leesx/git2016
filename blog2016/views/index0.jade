@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    div(class="row")
+        ul(class="list-group")
+        each item, i in news_lists
+            li(class="list-group-item")
+                span #{i+1}
+                span(class="time pull-right") #{item.time}
+                a(href="/") #{item.title}
+            

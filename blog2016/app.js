@@ -8,8 +8,13 @@ var bodyParser = require('body-parser');
 var db = require('./common/db')
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var add = require('./routes/add');
+var memberIndex = require('./routes/member/index');
+
+var articleIndex = require('./routes/article/index');
+var articleList = require('./routes/article/list');
+
+var commentIndex = require('./routes/comment/index');
+
 
 
 var app = express();
@@ -28,12 +33,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 db.collection('users').find({}).toArray(function(err, result) {
   if (err) throw err;
-  console.log('-----',result);
+  console.log('成功！！！！',result);
 });
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/add', add);
+app.use('/member/index', memberIndex);
+app.use('/article/index', articleIndex);
+app.use('/article/list', articleList);
+app.use('/comment/index', commentIndex);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

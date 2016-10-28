@@ -1,0 +1,62 @@
+extends ./../layout
+
+block content
+    div(class="row")
+        div(class="add-article")
+        form.form-horizontal
+            fieldset
+            #legend
+              legend 添加文章
+            .control-group
+              // Text input
+              label.control-label(for='input01') 标题
+              .controls
+                input.input-xlarge(type='text', placeholder='请输入标题')
+                p.help-block 不能超过20个字
+            .control-group
+              // Text input
+              label.control-label(for='input01') 作者名称
+              .controls
+                input.input-xlarge(type='text', placeholder='')
+                p.help-block
+            .control-group
+              label.control-label 文章类型
+              // Multiple Checkboxes
+              .controls
+                // Inline Checkboxes
+                label.checkbox.inline
+                  input(type='checkbox', value='经济')
+                  |         经济
+                label.checkbox.inline
+                  input(type='checkbox', value='文化')
+                  |         文化
+                label.checkbox.inline
+                  input(type='checkbox', value='军事')
+                  |         军事
+                label.checkbox.inline
+                  input(type='checkbox', value='娱乐')
+                  |         娱乐
+                label.checkbox.inline
+                  input(type='checkbox', value='八卦')
+                  |         八卦
+                label.checkbox.inline
+                  input(type='checkbox', value='IT')
+                  |         IT
+            .control-group
+              // Textarea
+              label.control-label 文章内容
+              .controls
+                .textarea
+                  textarea(type='')  
+            .control-group
+              label.control-label 上传缩略图
+              // File Upload
+              .controls
+                input#fileInput.input-file(type='file')
+            .control-group
+              label.control-label
+              // Button
+              .controls
+                button.btn.btn-success 提交文章
+
+        

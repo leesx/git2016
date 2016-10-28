@@ -3,7 +3,8 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "debug": "forerver ./bin/www",
+        "start": "forever -o out.log -w ./bin/www",
+        "prod debug": "forever -o out.log -w ./bin/www",
         "start": "node ./bin/www"
     },
     "dependencies": {
