@@ -6,11 +6,13 @@ import withExampleBasename from './withExampleBasename'
 import App from './App';
 import NoMatch from './NoMatch';
 import './index.css';
+import './style/antd.css';
 
 import Calendar from './components/Calendar';
 import ScrollBarDemo from './components/ScrollBarDemo';
 import LightBoxDemo from './components/LightBox';
 import MaskDemo from './components/MaskDemo';
+import ScrollDemo from './components/Scroll';
 
 render((
     // withExampleBasename(browserHistory, __dirname)
@@ -20,6 +22,7 @@ render((
       <Route path="scrollbar" component={ScrollBarDemo}/>
       <Route path="lightbox" component={LightBoxDemo}/>
       <Route path="maskdemo" component={MaskDemo}/>
+      <Route path="scroll" component={ScrollDemo}/>
       <Route path="*" component={NoMatch}/>
     </Route>
   </Router>
