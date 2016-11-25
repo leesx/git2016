@@ -2,25 +2,27 @@
   "name": "my-app",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "debug": "cross-env BABEL_ENV=development webpack-dev-server --progress --colors --display-error-details --display-modules --config webpack.dev.config.js"
+  },
   "devDependencies": {
     "react-scripts": "0.2.1"
   },
   "dependencies": {
     "antd": "^1.9.1",
+    "babel": "^6.5.2",
     "rc-animate": "^2.3.1",
     "rc-tween-one": "^0.8.5",
     "react": "^15.2.1",
+    "react-anything-sortable": "^1.6.1",
     "react-custom-scrollbars": "^4.0.0",
     "react-dom": "^15.2.1",
+    "react-dropzone": "^3.7.3",
     "react-images": "^0.5.1",
     "react-motion": "^0.4.4",
     "react-redux": "^4.4.5",
-    "react-router": "^2.6.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "react-router": "^2.6.1",
+    "webpack": "^1.13.3"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"

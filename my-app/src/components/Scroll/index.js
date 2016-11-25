@@ -92,7 +92,7 @@ export default class ScrollDemo extends Component{
         return (
             <div className="card-container" ref="cardContainer">
                 {this.renderCardList()}
-                <div><Spin spinning={this.state.moreLoading} /></div>
+                <div><Spin spinning={this.state.moreLoading} > 拼命加载中....</Spin></div>
             </div>
         )
     }

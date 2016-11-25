@@ -17,7 +17,7 @@ export default  class NoMatch extends Component{
         return (
             <div className="no-match">
                 <h1>404找不到</h1>
-                <img src="http://img.taopic.com/uploads/allimg/140401/234775-14040121030734.jpg"/>
+                <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3937685891,301028235&fm=58"/>
             </div>
         );
     }
