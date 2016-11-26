@@ -11,5 +11,3 @@ export default class DemoHOCItem extends React.Component {
     );
   }
 }
-
-export default DemoHOCItem;
