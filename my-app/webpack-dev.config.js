@@ -7,7 +7,7 @@ module.exports = {
       vendor: ['redux', 'react-redux', 'react-router']
     } ,
     output: {
-        publicPath: 'http://localhost:8082/lib/',
+        publicPath: 'http://localhost:8989/lib/',
         filename: '[name].min.js',
 		chunkFilename: '[id].chunk.js'
     },
@@ -32,7 +32,7 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.(js|jsx)$/,
-            loader: 'babel',
+            loader: 'babel-loader',
             exclude: /node_modules/,
         }, {
             test: /\.(jpg|png|gif)$/,
@@ -60,7 +60,7 @@ module.exports = {
         devtool: 'eval',
         hot: true,
         inline: true,
-        port: 8082,
+        port: 8989,
     },
     devtool: 'source-map',
 };
