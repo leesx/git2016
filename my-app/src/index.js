@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route,IndexRoute, Link, browserHistory } from 'react-router'
+import { Router, Route,IndexRoute,IndexRedirect, Link, browserHistory,hashHistory } from 'react-router'
 import withExampleBasename from './withExampleBasename'
 
 import App from './App';
@@ -19,14 +19,15 @@ import Vertical from './components/Sortable/vertical';
 
 render((
     // withExampleBasename(browserHistory, __dirname)
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="calendar" component={Calendar}/>
-      <Route path="scrollbar" component={ScrollBarDemo}/>
-      <Route path="lightbox" component={LightBoxDemo}/>
-      <Route path="maskdemo" component={MaskDemo}/>
-      <Route path="scroll" component={ScrollDemo}/>
-      <Route path="sortable" component={SortableDemo}>
+      <IndexRedirect to="/calendar" />
+      <Route path="/calendar" component={Calendar}/>
+      <Route path="/scrollbar" component={ScrollBarDemo}/>
+      <Route path="/lightbox" component={LightBoxDemo}/>
+      <Route path="/maskdemo" component={MaskDemo}/>
+      <Route path="/scroll" component={ScrollDemo}/>
+      <Route path="/sortable" component={SortableDemo}>
           <Route path="containment" component={Containment} />
           <Route path="vertical" component={Vertical} />
       </Route>
