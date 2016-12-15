@@ -16,6 +16,7 @@ import ScrollDemo from './components/Scroll';// 简单的滚动加载更多
 import SortableDemo from './components/Sortable';
 import Containment from './components/Sortable/containment';
 import Vertical from './components/Sortable/vertical';
+import DragDemo from './components/Drag';
 
 render((
     // withExampleBasename(browserHistory, __dirname)
@@ -27,6 +28,7 @@ render((
       <Route path="/lightbox" component={LightBoxDemo}/>
       <Route path="/maskdemo" component={MaskDemo}/>
       <Route path="/scroll" component={ScrollDemo}/>
+      <Route path="/drag" component={DragDemo}/>
       <Route path="/sortable" component={SortableDemo}>
           <Route path="containment" component={Containment} />
           <Route path="vertical" component={Vertical} />
