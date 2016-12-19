@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-import LeftMenu from './components/LeftMenu';
+import LeftMenu from './LeftMenu';
 
 export default class App extends Component{
     constructor(props){

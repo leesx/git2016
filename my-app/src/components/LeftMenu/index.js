@@ -25,6 +25,7 @@ export default class LeftMenu extends Component{
                 <li><Link to="/scroll">滚动</Link></li>
                 <li><Link to="/drag">HTML5拖拽</Link></li>
                 <li><Link to="/sortable">拖拽排序</Link></li>
+                <li><Link to="/testbabel">测试Babel</Link></li>
               </ul>
             </div>
         )
