@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route,IndexRoute,IndexRedirect, Link, browserHistory,hashHistory } from 'react-router'
+import "babel-polyfill";
 
 import './style/index.css';
 import './style/antd.css';
